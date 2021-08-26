@@ -1,20 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  creationTimestamp: null
+  labels:
+    app: hello-arc
   name: hello-arc
-  namespace: hello-arc
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: hello-arc
+  strategy: {}
   template:
     metadata:
+      creationTimestamp: null
       labels:
         app: hello-arc
     spec:
       containers:
-      - name: hello-arc
-        image: liorkamrat/hello-arc:latest
+      - image: iorkamrat/hello-arc:latest
+        name: hello-arc
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        resources: {}
+status: {}
